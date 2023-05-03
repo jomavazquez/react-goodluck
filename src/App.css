@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.myapp {
+  position: relative;
+  height: 100vh;;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#userList, .winners {
+  margin: 0;
+  padding: 0;
+}
+
+#userList li {
+  border: solid 1px #dfdfdf;
+  border-bottom: none;
+  margin: 0;
+  padding: 10px;
+}
+
+#userList li:last-child {
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.winners li {
+  border: solid 1px #005B50;
+  border-bottom: none;
+  color: #005B50;
+  margin: 0;
+  padding: 10px;
+  
+}
+
+.winners li:not(:last-child) {
+  text-decoration: line-through;
+}
+
+.winners li:last-child {
+  border-bottom: solid 1px #005B50;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button:disabled {
+  background-color: lightgray !important;
+  border: none;
+}
+
+@keyframes listItem {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#progress {
+  border-radius: 5px;
+  position: relative;
+  height: 10px;
+  width: 80%;
+}
+
+#progress .color {
+  background-color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  width: 0px;
+  height: 10px;
+  animation: progress 3s linear;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+    background-color: #A84410;
+  }
+  50% {
+    width: 75%;
+    background-color: #A84410;
+  }
+  75% {
+    width: 85%;
+    background-color: #C86400;
+  }
+  85% {
+    width: 95%;
+    background-color: #C86400;
+  }
+  100% {
+    width: 100%;
+    background-color: #C86400;
+  }
+}
