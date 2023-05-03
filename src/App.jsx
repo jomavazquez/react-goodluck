@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ProgressBar from './components/progressBar';
 import Spinner from './components/spinner';
 import { userNames } from './data/userList';
-import jesus from './assets/jesus2.png'
+import jesus from './assets/jesusok.png'
 import "./App.css";
 
 const App = () => {
