@@ -4,7 +4,7 @@
   list-style-type: none;
   text-decoration: none;
   background-color: #ffffff;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .myapp {
@@ -118,4 +118,27 @@ button:disabled {
     width: 100%;
     background-color: #FA5C98;
   }
+}
+
+@media screen and ( max-width: 600px ) {
+
+  h4 {
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 95%;
+  }
+
+  .container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .col-md-4 {
+    margin: 25px 0;
+  }
+
 }

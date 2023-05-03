@@ -58,14 +58,20 @@ const App = () => {
     <div className="myapp">
       <div className="container">
         <div className="row justify-content-center align-items-center">
-        <div className="col-md-4 text-center">
+          <div className="col-md-4 text-center">
+            <h4>Super team:</h4>
             <ul id="userList">
-                {users.map((user, index) => (
-                  <li className="list-item" key={index}>
-                    {user}
-                  </li>
-                ))}
-              </ul>
+            {
+              users.map((user, index) => (
+              <li className="list-item" key={index}>
+                { user }
+              </li>
+              ))
+            }
+            {
+              users.length === 0 && <div>Damn cowards!!!</div>
+            }
+            </ul>
           </div>
           <div className="col-md-4 text-center">
             {
