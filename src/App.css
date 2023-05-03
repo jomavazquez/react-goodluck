@@ -3,7 +3,7 @@
   padding: 0;
   list-style-type: none;
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #ffffff;
 }
 
 .myapp {
@@ -35,9 +35,10 @@
 }
 
 .winners li {
-  border: solid 1px #005B50;
+  border: solid 1px #005C01;
   border-bottom: none;
-  color: #005B50;
+  color: #005C01;
+  font-weight: normal;
   margin: 0;
   padding: 10px;
   
@@ -48,7 +49,7 @@
 }
 
 .winners li:last-child {
-  border-bottom: solid 1px #005B50;
+  border-bottom: solid 1px #005C01;
 }
 
 @keyframes App-logo-spin {
@@ -98,22 +99,22 @@ button:disabled {
   }
   25% {
     width: 50%;
-    background-color: #A84410;
+    background-color: #9A0038;
   }
   50% {
     width: 75%;
-    background-color: #A84410;
+    background-color: #BA1C58;
   }
   75% {
     width: 85%;
-    background-color: #C86400;
+    background-color: #DA3C78;
   }
   85% {
     width: 95%;
-    background-color: #C86400;
+    background-color: #FA5C98;
   }
   100% {
     width: 100%;
-    background-color: #C86400;
+    background-color: #FA5C98;
   }
 }

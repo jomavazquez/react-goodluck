@@ -2,21 +2,19 @@ import { useState } from 'react';
 import ProgressBar from './components/progressBar';
 import Spinner from './components/spinner';
 import { userNames } from './data/userList';
-import jesus from './assets/jesus.png'
+import jesus from './assets/jesus2.png'
 import "./App.css";
 
 const App = () => {
 
   const [ users, setUsers ] = useState( userNames );
-  const [ winners, setWinner ] = useState([]);
-
+  const [ winners, setWinner ] = useState( [] );
   const [ uiProps, setUiProps ] = useState({
     buttonDisabled: false,
     displayProgressBarr: false,
   });
-
   const [ error, setError ] = useState({
-    processTime: 3000,
+    processTime: 2000,
     loading: false,
   });
 
@@ -35,21 +33,21 @@ const App = () => {
     setTimeout(() => {
       getRandomName();
       if( typeof randomName === "undefined" ){
-        setError({ processTime: 1000, loading: true });
+        setError({ processTime: 750, loading: true });
         handleGetRandomName();
       }else{
         setWinner( [...winners, randomName] );
 
         const updateNameList = users.filter((user) => user !== randomName);
 
-        setUsers(updateNameList);
+        setUsers( updateNameList );
 
         setUiProps({
           buttonDisabled: false,
           displayProgressBarr: false,
         });
         setError({
-          processTime: 1000,
+          processTime: 750,
           loading: false,
         });
       }
@@ -92,7 +90,7 @@ const App = () => {
                 }
               </ul>
               {
-                winners.length > 0 && <img src={ jesus } alt="Jesus" />
+                winners.length > 0 && <img src={ jesus } alt="Jesus" width={ 400 } />
               }
           </div>
         </div>
