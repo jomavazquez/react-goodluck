@@ -4,6 +4,7 @@
   list-style-type: none;
   text-decoration: none;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .myapp {

@@ -90,7 +90,7 @@ const App = () => {
                 }
               </ul>
               {
-                winners.length > 0 && <img src={ jesus } alt="Jesus" width={ 400 } />
+                winners.length > 0 && !uiProps.displayProgressBarr && <img src={ jesus } alt="Jesus" width={ 400 } className="animate__animated animate__shakeX animate__delay-1s" />
               }
           </div>
         </div>
