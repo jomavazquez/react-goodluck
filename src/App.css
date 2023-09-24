@@ -7,6 +7,14 @@
   overflow-x: hidden;
 }
 
+h4 {
+  overflow: hidden;
+}
+
+img {
+  margin-top: 10px;
+}
+
 .myapp {
   position: relative;
   height: 100vh;;
