@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { userNames } from "./data/userList";
+import { userNames } from "./data/users";
 import { ProgressBar, Spinner, UserList, WinnerList } from "./components";
 import "./App.css";
 
