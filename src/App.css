@@ -17,10 +17,11 @@ img {
 
 .myapp {
   position: relative;
-  height: 100vh;;
+  height: 100vh;
 }
 
 .container {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,7 +51,6 @@ img {
   font-weight: normal;
   margin: 0;
   padding: 10px;
-  
 }
 
 .winners li:not(:last-child) {
@@ -61,84 +61,97 @@ img {
   border-bottom: solid 1px #005C01;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ── Buttons ── */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-button:disabled {
+.btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 140px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #0b5ed7;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+}
+
+.btn:disabled {
   background-color: lightgray !important;
   border: none;
+  cursor: not-allowed;
 }
 
-@keyframes listItem {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
+/* ── Progress bar ── */
 #progress {
   border-radius: 5px;
   position: relative;
   height: 10px;
   width: 80%;
+  margin: 0 auto 1rem;
+  background-color: #eee;
 }
 
 #progress .color {
-  background-color: #ffffff;
   border-radius: 5px;
   position: absolute;
   width: 0px;
   height: 10px;
-  animation: progress 3s linear;
+  animation: progress 1.5s linear forwards;
 }
 
 @keyframes progress {
-  0% {
-    width: 0%;
-  }
-  25% {
-    width: 50%;
-    background-color: #9A0038;
-  }
-  50% {
-    width: 75%;
-    background-color: #BA1C58;
-  }
-  75% {
-    width: 85%;
-    background-color: #DA3C78;
-  }
-  85% {
-    width: 95%;
-    background-color: #FA5C98;
-  }
-  100% {
-    width: 100%;
-    background-color: #FA5C98;
-  }
+  0%   { width: 0%;   background-color: #9A0038; }
+  25%  { width: 50%;  background-color: #9A0038; }
+  50%  { width: 75%;  background-color: #BA1C58; }
+  75%  { width: 85%;  background-color: #DA3C78; }
+  85%  { width: 95%;  background-color: #FA5C98; }
+  100% { width: 100%; background-color: #FA5C98; }
 }
 
-@media screen and ( max-width: 600px ) {
+/* ── Spinner ── */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  border-top-color: #9A0038;
+  animation: spin 0.7s linear infinite;
+  margin: 0.75rem auto;
+}
 
-  h4 {
-    overflow: hidden;
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
+@media screen and (max-width: 600px) {
   img {
     max-width: 95%;
   }
 
   .container {
+  width: 100%;
     position: relative;
     top: auto;
     left: auto;
@@ -148,5 +161,15 @@ button:disabled {
   .col-md-4 {
     margin: 25px 0;
   }
+}
 
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  flex: 1;
+  padding: 0 1rem;
 }

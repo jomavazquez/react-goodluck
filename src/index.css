@@ -1,15 +1,10 @@
-:root {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem;
-  line-height: 1.2rem;
-  font-weight: 400;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  color: #333;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  margin: 0;
+  background: #0d0d0d;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
