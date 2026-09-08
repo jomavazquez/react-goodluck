@@ -1,33 +1,25 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { userNames } from "./data/users";
-import { ProgressBar, Spinner, UserList, WinnerList } from "./components";
+import { ProgressBar, UserList, WinnerList } from "./components";
 import "./App.css";
 
 const PICK_DELAY_MS = 2000;
-const RETRY_DELAY_MS = 750;
 
 const App = () => {
   const [ remaining, setRemaining ] = useState<string[]>(userNames);
   const [ winners, setWinners ] = useState<string[]>([]);
   const [ isLoading, setIsLoading ] = useState(false);
-  const [ isRetrying, setIsRetrying ] = useState(false);
+  const pickTimeoutRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => () => clearTimeout(pickTimeoutRef.current), []);
 
   const pickWinner = useCallback((pool: string[], delay: number) => {
     setIsLoading(true);
 
-    setTimeout(() => {
-      if (pool.length === 0) return;
-
+    pickTimeoutRef.current = setTimeout(() => {
       const index = Math.floor(Math.random() * pool.length);
       const picked = pool[index];
 
-      if (picked === undefined) {
-        setIsRetrying(true);
-        pickWinner(pool, RETRY_DELAY_MS);
-        return;
-      }
-
-      setIsRetrying(false);
       setWinners((prev) => [...prev, picked]);
       setRemaining((prev) => prev.filter((u) => u !== picked));
       setIsLoading(false);
@@ -35,15 +27,15 @@ const App = () => {
   }, []);
 
   const handlePick = () => {
-    if (isLoading || remaining.length === 0) return;
+    if( isLoading || remaining.length === 0 ) return;
     pickWinner(remaining, PICK_DELAY_MS);
   };
 
   const handleReset = () => {
+    clearTimeout(pickTimeoutRef.current);
     setRemaining(userNames);
     setWinners([]);
     setIsLoading(false);
-    setIsRetrying(false);
   };
 
   return (
@@ -52,12 +44,14 @@ const App = () => {
         <div className="row">
           <UserList users={ remaining } />
           <div className="col-md-4 text-center">
-            { isLoading && <ProgressBar /> }
-            { isRetrying && <Spinner /> }
+            <div aria-live="polite">
+              { isLoading && <ProgressBar /> }
+            </div>
             <div className="button-group">
               <button
                 onClick={ handlePick }
                 disabled={ isLoading || remaining.length === 0 }
+                aria-busy={ isLoading }
                 className="btn btn-primary"
               >
                 {

@@ -8,7 +8,7 @@ interface WinnerListProps {
 export const WinnerList = ({ winners, isLoading }: WinnerListProps) => (
   <div className="col-md-4 text-center">
     <h4>The choosen one:</h4>
-    <ul className="winners">
+    <ul className="winners" aria-live="polite">
       {
         winners.map((winner, index) => (
             <li key={winner} className="list-item">
@@ -22,8 +22,8 @@ export const WinnerList = ({ winners, isLoading }: WinnerListProps) => (
         winners.length > 0 && !isLoading && (
         <img
             src={ jesus }
-            alt="Jesus"
-            width={ 400 }
+            alt=""
+            aria-hidden="true"
             className="animate__animated animate__shakeX animate__delay-1s"
         />
         )
